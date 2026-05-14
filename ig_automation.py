@@ -1,8 +1,7 @@
 from google.colab import drive
 drive.mount('/content/drive')
 
-!pip install word2number
-
+pip install pandas openpyxl psycopg2-binary word2number
 import pandas as pd
 import numpy as np
 import os, re
@@ -355,8 +354,6 @@ for i, client in enumerate(os.listdir(base_path)):
 
         print(f" Created: {client}_master.xlsx")
 
-  !pip install psycopg2-binary
-
 import psycopg2
 
 NEON_CONNECTION_STRING = "postgresql://neondb_owner:npg_QrhOFA4P0TqR@ep-small-bonus-annsy0ax-pooler.c-6.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
@@ -638,8 +635,6 @@ for client_file in os.listdir(base_path):
 
 conn.close()
 print("All files processed successfully")
-
-!pip install psycopg2-binary
 
 import os
 import re
