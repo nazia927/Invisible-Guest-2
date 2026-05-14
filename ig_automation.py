@@ -91,17 +91,18 @@ def apply_likert(df):
         'good': 2,
         'very good': 3}
 
-def clean_text(x):
-        if isinstance(x, str):
-            return x.strip().lower()
-        return x
+def process_likert_columns(df):
 
-likert_cols = []
+    likert_cols = []
 
-for col in survey_cols:
-    cleaned_vals = df[col].dropna().apply(clean_text).unique()
+    for col in survey_cols:
 
-    if len(cleaned_vals) > 0 and all(val in likert_map or val == 'n/a' for val in cleaned_vals):
+        cleaned_vals = df[col].dropna().apply(clean_text).unique()
+
+        if len(cleaned_vals) > 0 and all(
+            val in likert_map or val == 'n/a'
+            for val in cleaned_vals
+        ):
             likert_cols.append(col)
 
     for col in likert_cols:
@@ -109,7 +110,8 @@ for col in survey_cols:
         df[col] = df[col].apply(clean_text)
 
         df[col] = df[col].apply(
-            lambda x: np.nan if pd.isna(x) or x == 'n/a'
+            lambda x: np.nan
+            if pd.isna(x) or x == 'n/a'
             else likert_map.get(x, np.nan)
         )
 
