@@ -55,7 +55,7 @@ def map_recommendation_scores(df):
         'Based on this experience, how likely is it that you would return? Response'
     ]
 
-def map_likert(val):
+    def map_likert(val):
         if isinstance(val, str):
             val = val.lower().strip()
             if 'very likely' in val:
