@@ -24,3 +24,7 @@ jobs:
 
       - name: Run automation script
         run: python ig_automation.py
+
+      - name: Install dependencies
+        run: |
+        pip install pandas numpy openpyxl psycopg2-binary word2number
