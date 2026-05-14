@@ -287,7 +287,7 @@ for col, mapping in speed_col_maps.items():
         print(f"Mapped: {col}")
         print(f"Values: {df[col].value_counts(dropna=False).to_dict()}")
 
-    return df
+
 
 
 def process_file(file_path):
