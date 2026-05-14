@@ -55,7 +55,7 @@ def map_recommendation_scores(df):
         'Based on this experience, how likely is it that you would return? Response'
     ]
 
-    def map_likert(val):
+def map_likert(val):
         if isinstance(val, str):
             val = val.lower().strip()
             if 'very likely' in val:
@@ -92,7 +92,7 @@ def apply_likert(df):
         'good': 2,
         'very good': 3}
 
-    def clean_text(x):
+def clean_text(x):
         if isinstance(x, str):
             return x.strip().lower()
         return x
@@ -212,7 +212,7 @@ def parse_guests(val):
         except:
             return None
 
-      def fix_guests(df):
+def fix_guests(df):
     col = 'please_enter_the_number_of_guests_in_your_party_response'
     if col in df.columns:
         df[col] = df[col].apply(parse_guests)
@@ -260,7 +260,7 @@ def map_speed_scores(df):
         'Speed of hot beverage service How long did it take to receive your coffee/hot beverage from ordering?': hot_bev_map,
     }
 
-    def clean_speed_value(x, mapping):
+def clean_speed_value(x, mapping):
 
         if pd.isna(x):
             return np.nan
@@ -308,7 +308,7 @@ def process_file(file_path):
         print(f"Error: {file_path} → {e}")
         return None
 
-  def add_client_id(df, client_name, client_id):
+def add_client_id(df, client_name, client_id):
     df['client_id'] = client_id
     df['client_name'] = client_name
     return df
