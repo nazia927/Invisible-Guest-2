@@ -49,7 +49,6 @@ def drop_footer_last_column(df):
     return df
 
 def map_recommendation_scores(df):
-
     cols = [
         'How likely would you be to recommend this establishment? Response',
         'Based on this experience, how likely is it that you would return? Response'
