@@ -519,7 +519,7 @@ for client_file in os.listdir(base_path):
         print("Longest column length:", max(len(c) for c in cols))
         print([c for c in cols if "conditions_at_the_time_of_visit" in c])
 
-  import os
+import os
 import re
 import pandas as pd
 import psycopg2
