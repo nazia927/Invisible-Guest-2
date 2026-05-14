@@ -261,25 +261,29 @@ def map_speed_scores(df):
 
 def clean_speed_value(x, mapping):
 
-        if pd.isna(x):
-            return np.nan
+    if pd.isna(x):
+        return np.nan
 
-        x_clean = str(x).strip().lower()
+    x_clean = str(x).strip().lower()
 
-        if x_clean in ["n/a", "na"]:
-            return np.nan  # ignored completely
+    if x_clean in ["n/a", "na"]:
+        return np.nan
 
-        return mapping.get(x_clean, np.nan)
+    return mapping.get(x_clean, np.nan)
 
-    for col, mapping in speed_col_maps.items():
 
-        if col in df.columns:
+for col, mapping in speed_col_maps.items():
 
-            df[col] = df[col].apply(lambda x: clean_speed_value(x, mapping))
-            df[col] = pd.to_numeric(df[col], errors='coerce')
+    if col in df.columns:
 
-            print(f"Mapped: {col}")
-            print(f"  Values: {df[col].value_counts(dropna=False).to_dict()}\n")
+        df[col] = df[col].apply(
+            lambda x: clean_speed_value(x, mapping)
+        )
+
+        df[col] = pd.to_numeric(df[col], errors='coerce')
+
+        print(f"Mapped: {col}")
+        print(f"Values: {df[col].value_counts(dropna=False).to_dict()}")
 
     return df
 
