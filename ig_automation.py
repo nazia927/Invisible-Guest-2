@@ -96,12 +96,12 @@ def clean_text(x):
             return x.strip().lower()
         return x
 
-    likert_cols = []
+likert_cols = []
 
-    for col in survey_cols:
-        cleaned_vals = df[col].dropna().apply(clean_text).unique()
+for col in survey_cols:
+    cleaned_vals = df[col].dropna().apply(clean_text).unique()
 
-        if len(cleaned_vals) > 0 and all(val in likert_map or val == 'n/a' for val in cleaned_vals):
+    if len(cleaned_vals) > 0 and all(val in likert_map or val == 'n/a' for val in cleaned_vals):
             likert_cols.append(col)
 
     for col in likert_cols:
