@@ -172,7 +172,7 @@ def clean_spend(val):
     except:
         return None
 
-  def fix_spend(df):
+def fix_spend(df):
     spend_cols = [c for c in df.columns if 'expenditure' in c or 'total' in c]
     for col in spend_cols:
         df[col] = df[col].apply(clean_spend)
