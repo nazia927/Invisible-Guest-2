@@ -1,7 +1,7 @@
 from google.colab import drive
 drive.mount('/content/drive')
 
-pip install pandas openpyxl psycopg2-binary word2number
+
 import pandas as pd
 import numpy as np
 import os, re
