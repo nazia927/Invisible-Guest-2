@@ -18,8 +18,7 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
-        run: |
+   
           pip install pandas openpyxl psycopg2-binary
 
       - name: Run automation script
