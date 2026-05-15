@@ -250,7 +250,7 @@ def map_speed_scores(df):
         'greater than eight minutes': 0,
     }
 
-    speed_col_maps = {
+     = {
         'Speed of initial drinks order taking How quickly was your drinks order taken from arrival at bar?': drinks_order_map,
         'Speed of initial drinks service How long did it take for your drinks to arrive from time of order?': drinks_order_map,
         'Speed of food ordering How quickly was your food order taken from time of arrival at order point?': food_order_map,
@@ -271,7 +271,7 @@ def clean_speed_value(x, mapping):
 
     return mapping.get(x_clean, np.nan)
 
-
+speed_col_maps = {}
 for col, mapping in speed_col_maps.items():
 
     if col in df.columns:
