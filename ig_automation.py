@@ -326,7 +326,7 @@ def reorder_columns(df):
 
     return df[cols]
 
-base_path = "/content/drive/MyDrive/P000251DA_INVISIBLE GUEST (GROUP 2)/"
+base_path = "./data/"
 
 for i, client in enumerate(os.listdir(base_path)):
 
